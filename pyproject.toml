@@ -1,0 +1,21 @@
+# Not a Python distribution: a PartCAD package, whose scripts PartCAD runs in
+# its sandbox. This holds the configuration of the tools that check them, the
+# same as PartCAD's own (github.com/partcad/partcad, pyproject.toml).
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+# Read by flake8 through the Flake8-pyproject plugin.
+[tool.flake8]
+max-line-length = 120
+extend-ignore = "E203,E501"
+extend-exclude = ".venv"
+
+[tool.pytest.ini_options]
+testpaths = ["."]
+addopts = "-p no:cacheprovider"

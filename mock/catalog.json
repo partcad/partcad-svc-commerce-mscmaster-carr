@@ -1,0 +1,84 @@
+{
+  "_comment": "What mock_mcmaster.py sells: the shape of McMaster-Carr's Product Information API answers, with values made up and CAD files of this repository's own drawing (cad/), not McMaster-Carr's.",
+  "max_subscriptions": 1000,
+  "max_subscriptions_per_day": 500,
+  "parts": {
+    "91290A115": {
+      "ProductStatus": "Active",
+      "FamilyDescription": "Black-Oxide Alloy Steel Socket Head Screw",
+      "DetailDescription": "M3 x 0.5 mm Thread, 10 mm Long",
+      "Specifications": [
+        {"Attribute": "Thread Size", "Values": ["M3"]},
+        {"Attribute": "Thread Pitch", "Values": ["0.5 mm"]},
+        {"Attribute": "Length", "Values": ["10 mm"]},
+        {"Attribute": "Material", "Values": ["Black-Oxide Alloy Steel"]},
+        {"Attribute": "Drive Style", "Values": ["Hex"]}
+      ],
+      "Links": [
+        {"Key": "Price", "Value": "/v1/products/91290A115/price"},
+        {"Key": "Image", "Value": "/v1/images/contents/gfx/imagecache/912/91290A115p1.png"},
+        {"Key": "2-D DWG", "Value": "/v1/cad/library/20180924/91290A115_SOCKET%20HEAD%20SCREW.DWG"},
+        {"Key": "3-D STEP", "Value": "/v1/cad/library/20180924/91290A115_SOCKET%20HEAD%20SCREW.STEP"}
+      ],
+      "Files": {
+        "/v1/cad/library/20180924/91290A115_SOCKET%20HEAD%20SCREW.STEP": "cad/91290A115_SOCKET HEAD SCREW.STEP"
+      },
+      "Price": [
+        {"Amount": 9.85, "MinimumQuantity": 1, "UnitOfMeasure": "Pack of 100"},
+        {"Amount": 8.5, "MinimumQuantity": 5, "UnitOfMeasure": "Pack of 100"}
+      ]
+    },
+    "94180A331": {
+      "ProductStatus": "Active",
+      "FamilyDescription": "Heat-Set Inserts for Plastic",
+      "DetailDescription": "Brass, M3 x 0.5 mm Thread Size, 5.7 mm Installed Length",
+      "Specifications": [
+        {"Attribute": "Thread Size", "Values": ["M3"]},
+        {"Attribute": "Installed Length", "Values": ["5.7 mm"]},
+        {"Attribute": "Material", "Values": ["Brass"]},
+        {"Attribute": "Packaging", "Values": ["Packs of 50"]}
+      ],
+      "Links": [
+        {"Key": "Price", "Value": "/v1/products/94180A331/price"},
+        {"Key": "3-D STEP", "Value": "/v1/cad/library/20200311/94180A331_HEAT-SET%20INSERT.STEP"}
+      ],
+      "Files": {
+        "/v1/cad/library/20200311/94180A331_HEAT-SET%20INSERT.STEP": "cad/94180A331_HEAT-SET INSERT.STEP"
+      },
+      "Price": [{"Amount": 15.32, "MinimumQuantity": 1, "UnitOfMeasure": "Pack"}]
+    },
+    "6661K14": {
+      "ProductStatus": "Active",
+      "FamilyDescription": "Ball Bearing",
+      "DetailDescription": "Shielded, Trade Number 626-2Z, for 6 mm Shaft Diameter",
+      "Specifications": [
+        {"Attribute": "Shaft Diameter", "Values": ["6 mm"]},
+        {"Attribute": "Outside Diameter", "Values": ["19 mm"]},
+        {"Attribute": "Width", "Values": ["6 mm"]},
+        {"Attribute": "Seal Type", "Values": ["Shielded"]}
+      ],
+      "Links": [
+        {"Key": "Price", "Value": "/v1/products/6661K14/price"},
+        {"Key": "3-D STEP", "Value": "/v1/cad/library/20190502/6661K14_BALL%20BEARING.STEP"}
+      ],
+      "Files": {
+        "/v1/cad/library/20190502/6661K14_BALL%20BEARING.STEP": "cad/6661K14_BALL BEARING.STEP"
+      },
+      "Price": [
+        {"Amount": 6.04, "MinimumQuantity": 1, "UnitOfMeasure": "Each"},
+        {"Amount": 5.41, "MinimumQuantity": 10, "UnitOfMeasure": "Each"}
+      ]
+    },
+    "4936K451": {
+      "ProductStatus": "Discontinued",
+      "FamilyDescription": "Compact Extreme-Pressure Steel Pipe Fitting",
+      "DetailDescription": "Adapter, 1/2 NPT Female, M20 x 1.5mm Male Thread",
+      "Specifications": [],
+      "Links": [{"Key": "SuggestedProduct", "Value": "https://www.mcmaster.com/15185A41"}],
+      "SuggestedProductDifferences": [
+        {"Attribute": "Material", "DiscontinuedProductValue": "Steel", "SuggestedProductValue": "Zinc-Plated Steel"}
+      ],
+      "Price": [{"Amount": 3.46, "MinimumQuantity": 1, "UnitOfMeasure": "Each"}]
+    }
+  }
+}
