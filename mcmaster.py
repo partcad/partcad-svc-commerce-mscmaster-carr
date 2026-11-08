@@ -180,6 +180,7 @@ class McMaster(d.Distributor):
     STORE = "mcmaster"
     CATALOGUE = "mcmaster_repo"
     CAD_SOURCE = "McMaster-Carr"
+    HOMEPAGE = "https://github.com/partcad/partcad-svc-commerce-mscmaster-carr"
     CREDENTIALS = {
         "username": "MCMASTER_USERNAME",
         "password": "MCMASTER_PASSWORD",
@@ -334,6 +335,8 @@ class McMaster(d.Distributor):
             status=status,
             orderable=d.fold(status) == "active",
             pack=pack,
+            # McMaster-Carr prices a pack, and counts its breaks in packs.
+            per="pack",
             breaks=[(p.get("MinimumQuantity"), p.get("Amount")) for p in prices if isinstance(p, dict)],
             currency="USD",
             specs=specs,
@@ -345,8 +348,8 @@ class McMaster(d.Distributor):
         what = " ".join(w for w in (product.title, product.desc) if w)
         return "McMaster-Carr %s: %s" % (product.sku, what) if what else "McMaster-Carr %s" % product.sku
 
-    def describe(self, product, file=None):
-        text = super().describe(product, file)
+    def describe(self, product, file=None, family=None):
+        text = super().describe(product, file, family)
         if product.extra.get("suggested"):
             text += " McMaster-Carr suggests %s instead." % product.extra["suggested"]
         return text
