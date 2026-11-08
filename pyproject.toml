@@ -9,6 +9,9 @@ target-version = ["py310"]
 [tool.isort]
 profile = "black"
 line_length = 120
+# Sorted as PartCAD sorts them: the shared files are copied from PartCAD's
+# repository, where these are not first-party, and must be byte for byte the same.
+known_third_party = ["distributor", "plugin_models"]
 
 # Read by flake8 through the Flake8-pyproject plugin.
 [tool.flake8]

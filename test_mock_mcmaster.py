@@ -21,9 +21,8 @@ import ssl
 import urllib.error
 import urllib.request
 
-import pytest
-
 import distributor as d
+import pytest
 
 pytest.importorskip("cryptography")
 

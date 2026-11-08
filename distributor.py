@@ -385,6 +385,15 @@ class Distributor(pm.Site):
             meta["desc"] = desc + ". Search it: nothing is listed."
             if category.url:
                 meta["url"] = category.url
+        # What is below, by name: a package that lists nothing is one PartCAD's
+        # 'pc list packages' leaves out, so this is where its children are said.
+        try:
+            below = [c.slug for c in (self.tree() if category is None else category.children)]
+        except SiteError:
+            below = []  # the root's description needs no credentials, the categories do
+        if below:
+            shown = ", ".join(below[:60]) + (", ..." if len(below) > 60 else "")
+            meta["desc"] = "%s\nCategories: %s." % (meta["desc"].rstrip(), shown)
         return meta
 
     def children_of(self, category):
@@ -499,7 +508,7 @@ class Distributor(pm.Site):
         return what or who or "%s %s" % (self.TITLE, product.sku)
 
     def describe(self, product, file=None):
-        """What 'pc list'/'pc inspect' say of a product: what it is, its specifications, how it is sold."""
+        """What 'pc list' and 'pc info' say of a product: what it is, its specifications, how it is sold."""
         sentences = [self.title_of(product)]
         if product.desc and product.title and fold(product.desc) not in fold(sentences[0]):
             sentences.append(product.desc)

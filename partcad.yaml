@@ -36,7 +36,7 @@ docs:
     ```shell
     pc login //pub/svc/commerce/mcmaster:mcmaster_repo
     pc login //pub/svc/commerce/mcmaster:mcmaster
-    pc inspect //pub/svc/commerce/mcmaster/products:91290A115
+    pc info //pub/svc/commerce/mcmaster/products:91290A115
     pc search parts -P //pub/svc/commerce/mcmaster/products -k 91290A115
     pc supply quote //pub/svc/commerce/mcmaster/products:91290A115#200
     ```

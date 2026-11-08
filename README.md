@@ -33,7 +33,7 @@ read with `cryptography`, which the package's `pythonRequirements` puts in the s
 ## Using it
 
 ```shell
-pc inspect //pub/svc/commerce/mcmaster/products:91290A115
+pc info //pub/svc/commerce/mcmaster/products:91290A115
 pc search parts -P //pub/svc/commerce/mcmaster/products -k "91290A115 92095A181"
 pc supply quote //pub/svc/commerce/mcmaster/products:91290A115#250
 ```
@@ -92,12 +92,14 @@ parameters:
     # the same
 ```
 
-and then everything above works against it: `pc inspect` builds `91290A115`, `94180A331` and
+and then everything above works against it: `pc info` builds `91290A115`, `94180A331` and
 `6661K14`, `pc supply quote` prices them, `4936K451` is discontinued, and anything else is no
 McMaster-Carr part. `test_mock_mcmaster.py` runs the plugin against it over TLS, with
 certificates made for the test.
 
-Not yet run against McMaster-Carr itself, for want of an approved account here: the mock
+Run end to end in PartCAD 0.9.22 against the mock - `pc info` built `91290A115` from its STEP
+over TLS with the PKCS#12 certificate, and `pc supply quote` of 250 of them came to three packs,
+$29.55. Not yet against McMaster-Carr itself, for want of an approved account here: the mock
 follows McMaster-Carr's documentation and its Postman examples.
 
 ## Tests

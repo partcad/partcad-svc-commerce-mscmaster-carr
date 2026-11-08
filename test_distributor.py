@@ -12,9 +12,8 @@ touches the network. What each plugin asks its own API is tested beside it.
 import base64
 import os
 
-import pytest
-
 import distributor as d
+import pytest
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
 
@@ -407,3 +406,11 @@ def test_client_credentials_can_go_as_http_basic(fake):
     headers, form = asked[0]
     assert headers["Authorization"] == "Basic " + d.base64.b64encode(b"id%201:s%3A2").decode()
     assert b"client_secret" not in form and b"grant_type=client_credentials" in form
+
+
+def test_a_package_says_the_categories_below_it(fake):
+    """'pc list packages' leaves out a package that lists nothing, so its description names what is below."""
+    made = fake()
+    assert made.get("meta")["desc"].endswith("Categories: resistors, integrated-circuits-ics, integrated-circuits.")
+    assert made.get("resistors/meta")["desc"].endswith("Categories: chip-resistor-surface-mount, through-hole.")
+    assert "Categories" not in made.get("resistors/through-hole/meta")["desc"]
